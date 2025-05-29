@@ -13,7 +13,7 @@ UWarriorAbilitySystemComponent* UWarriorFunctionLibrary::NativeGetWarriorASCFrom
 void UWarriorFunctionLibrary::AddGameplayTagToActorIfNone(AActor* InActor, FGameplayTag TagToAdd)
 {
 	UWarriorAbilitySystemComponent* ASC = NativeGetWarriorASCFromActor(InActor);
-	if (ASC->HasMatchingGameplayTag(TagToAdd))
+	if (!ASC->HasMatchingGameplayTag(TagToAdd))
 	{
 		ASC->AddLooseGameplayTag(TagToAdd);
 	}
