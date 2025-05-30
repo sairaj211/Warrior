@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Characters/WarriorEnemyCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/Combat/EnemyCombatComponent.h"
-#include "Characters/WarriorEnemyCharacter.h"
 #include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
 #include "DataAssets/StartUpData/DataAsset_EnemyStartUpData.h"
 #include "Engine/AssetManager.h"
@@ -26,6 +26,11 @@ AWarriorEnemyCharacter::AWarriorEnemyCharacter()
 	EnemyCombatComponent = CreateDefaultSubobject<UEnemyCombatComponent>("EnemyCombatComponent");
 }
 
+UPawnCombatComponent* AWarriorEnemyCharacter::GetPawnCombatComponent() const
+{
+	return EnemyCombatComponent;
+}
+
 void AWarriorEnemyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
@@ -47,8 +52,6 @@ void AWarriorEnemyCharacter::InitEnemyStartUpData()
 					if (UDataAsset_StartUpDataBase* LoadedData =  CharacterStartUpData.Get())
 					{
 						LoadedData->GiveToAbilitySystemComponent(WarriorAbilitySystemComponent);
-
-						Debug::Print(TEXT("Enemy StartUpData Loaded"), FColor::Green);
 					}
 				}
 			)
