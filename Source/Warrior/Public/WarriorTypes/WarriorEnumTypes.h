@@ -22,3 +22,10 @@ enum class EToggleDamageType : uint8
 	LeftHand,
 	RightHand
 };
+
+UENUM()
+enum class EWarriorSuccessType : uint8
+{
+	Successful,
+	Failed
+};
