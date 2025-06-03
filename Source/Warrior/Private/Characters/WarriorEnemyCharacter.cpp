@@ -6,6 +6,7 @@
 #include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
 #include "DataAssets/StartUpData/DataAsset_EnemyStartUpData.h"
 #include "Engine/AssetManager.h"
+#include "Components/UI/EnemyUIComponent.h"
 
 #include "WarriorDebugHelper.h"
 
@@ -24,11 +25,17 @@ AWarriorEnemyCharacter::AWarriorEnemyCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 1000.0f;
 
 	EnemyCombatComponent = CreateDefaultSubobject<UEnemyCombatComponent>("EnemyCombatComponent");
+	EnemyUIComponent = CreateDefaultSubobject<UEnemyUIComponent>("EnemyUIComponent");
 }
 
 UPawnCombatComponent* AWarriorEnemyCharacter::GetPawnCombatComponent() const
 {
 	return EnemyCombatComponent;
+}
+
+UPawnUIComponent* AWarriorEnemyCharacter::GetPawnUIComponent() const
+{
+	return EnemyUIComponent;
 }
 
 void AWarriorEnemyCharacter::PossessedBy(AController* NewController)
