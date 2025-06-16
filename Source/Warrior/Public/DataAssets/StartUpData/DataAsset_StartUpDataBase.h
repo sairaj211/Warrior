@@ -25,7 +25,7 @@ protected:
 	TArray<TSubclassOf<UWarriorGameplayAbility>> ActivateOnGivenAbilities;
 
 	UPROPERTY(EditDefaultsOnly, Category = "StartUpData")
-	TArray<TSubclassOf<UWarriorGameplayAbility>> ReactivateAbilities;
+	TArray<TSubclassOf<UWarriorGameplayAbility>> ReactiveAbilities;
 
 	UPROPERTY(EditDefaultsOnly, Category = "StartUpData")
 	TArray<TSubclassOf<UGameplayEffect>> StartUpGameplayEffects;
