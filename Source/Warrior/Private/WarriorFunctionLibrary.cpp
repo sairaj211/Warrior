@@ -10,6 +10,8 @@
 #include "WarriorGameplayTags.h"
 #include "Kismet/KismetMathLibrary.h"
 
+#include "WarriorDebugHelper.h"
+
 UWarriorAbilitySystemComponent* UWarriorFunctionLibrary::NativeGetWarriorASCFromActor(AActor* InActor)
 {
 	check(InActor);
@@ -82,8 +84,19 @@ float UWarriorFunctionLibrary::GetScalableFloatAtLevel(const FScalableFloat& InS
 	return InScalableFloat.GetValueAtLevel(InLevel);
 }
 
+bool UWarriorFunctionLibrary::IsValidBlock(AActor* InAttacker, AActor* InDefender)
+{
+	check(InAttacker && InDefender);
+	const float DotResult = FVector::DotProduct(InAttacker->GetActorForwardVector(),InDefender->GetActorForwardVector());
+
+	//const FString DebugString = FString::Printf(TEXT("Dot Result: %f %s"),DotResult,DotResult<-0.1f? TEXT("Valid Block") : TEXT("InvalidBlock"));
+	//Debug::Print(DebugString,DotResult<-0.1f? FColor::Green : FColor::Red);
+
+	return DotResult < -0.1f;
+}
+
 FGameplayTag UWarriorFunctionLibrary::ComputeHitReactDirectionTag(AActor* InAttacker, AActor* InVictim,
-	float& OutAngleDifference)
+                                                                  float& OutAngleDifference)
 {
 	check(InAttacker && InVictim);
 	const FVector VictimForward = InVictim->GetActorForwardVector();
