@@ -132,6 +132,16 @@ FGameplayTag UWarriorFunctionLibrary::ComputeHitReactDirectionTag(AActor* InAtta
 	return WarriorGameplayTags::Shared_Status_HitReact_Front;
 }
 
+bool UWarriorFunctionLibrary::ApplyGameplayEffectSpecHandleToTargetActor(AActor* InInstigator, AActor* InTargetActor, const FGameplayEffectSpecHandle& InSpecHandle)
+{   
+	UWarriorAbilitySystemComponent* SourceASC = NativeGetWarriorASCFromActor(InInstigator);
+	UWarriorAbilitySystemComponent* TargetASC = NativeGetWarriorASCFromActor(InTargetActor);
+
+	FActiveGameplayEffectHandle ActiveGameplayEffectHandle = SourceASC->ApplyGameplayEffectSpecToTarget(*InSpecHandle.Data,TargetASC);
+
+	return ActiveGameplayEffectHandle.WasSuccessfullyApplied();
+}
+
 
 /*
 FGameplayTag UWarriorFunctionLibrary::ComputeHitReactDirectionTag(AActor* InAttacker, AActor* InVictim, float& OutAngleDifference)

@@ -18,10 +18,11 @@ public class Warrior : ModuleRules
 			"EnhancedInput",
             "GameplayTasks",
             "AnimGraphRuntime",
-            "MotionWarping"
+            "MotionWarping",
+            "Niagara"
 		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "AnimGraphRuntime", "AnimGraphRuntime" });
+		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
