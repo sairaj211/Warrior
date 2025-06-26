@@ -13,10 +13,8 @@ UCLASS()
 class WARRIOR_API UEnemyCombatComponent : public UPawnCombatComponent
 {
 	GENERATED_BODY()
-	
+
 public:
 	virtual void OnHitTargetActor(AActor* HitActor) override;
-
-protected:
-	virtual void ToggleBodyCollsionBoxCollision(bool bShouldEnable,EToggleDamageType ToggleDamageType) override;
+	virtual void OnWeaponPulledFromTargetActor(AActor* InteractedActor) override;
 };
