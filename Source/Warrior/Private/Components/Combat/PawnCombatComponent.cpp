@@ -69,6 +69,7 @@ void UPawnCombatComponent::ToggleCurrentEquippedWeaponCollision(bool bShouldEnab
 {
 	AWarriorWeaponBase* WeaponToToggle = GetCharacterCurrentEquippedWeapon();
 	check(WeaponToToggle);
+	
 	if (bShouldEnableCollision)
 	{
 		WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
