@@ -84,5 +84,5 @@ namespace WarriorGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Left, "Shared_Status_HitReact_Left");
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Right, "Shared_Status_HitReact_Right");
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Back, "Shared_Status_HitReact_Back");
-	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_Invincible,"Shared_Status_Invincible");
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_Invincible,"Shared.Status.Invincible");
 }
